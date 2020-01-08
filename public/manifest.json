@@ -1,0 +1,17 @@
+{
+    "name": "Football App",
+    "short_name": "FPWA",
+    "description": "Grady Football PWA",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#4db6ac",
+    "theme_color": "#4db6ac",
+    "icons": [
+        {
+            "src": "icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "gcm_sender_id":"463647637242"
+}
