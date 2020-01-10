@@ -64,15 +64,12 @@ workbox.precaching.precacheAndRoute([
 
   workbox.routing.registerRoute(
     new RegExp('/article.html'),
-    workbox.strategies.networkFirst({
-        networkTimeoutSeconds: 5,     // 3 detik
-        cacheName: 'timelines'
-    })
-  );
-
-  workbox.routing.registerRoute(
-    new RegExp('/article.html'),
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: 'articles'
+    new workbox.strategies.StaleWhileRevalidate({
+      cacheName: 'timelines',
+      plugins: [
+        new workbox.cacheableResponse.Plugin({
+          statuses: [0, 200],
+        })
+      ]
     })
   );
