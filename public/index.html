@@ -80,7 +80,7 @@
               navigator.serviceWorker.getRegistration().then(function(registration) {
                   registration.pushManager.subscribe({
                       userVisibleOnly: true,
-                      applicationServerKey: urlBase64ToUint8Array("BMUR-5N9VFubWm5g9qU0d999ZDo0VuW2c8mFEjeEp0EnTvGvG0ho1ADT7VmHA7Z7oZX3SMdvV00flGe9YKApmfM")
+                      applicationServerKey: urlBase64ToUint8Array("BGTbtVhKTnR9Y6ACdecXLEB_AhVUkujl7IiW4eP4ZQqMPcsMyaasH93y6hrxHObERY384JMzg0HcuIy8lo2YNQo")
                   }).then(function(subscribe) {
                       console.log('Berhasil melakukan subscribe dengan endpoint: ', subscribe.endpoint);
                       console.log('Berhasil melakukan subscribe dengan p256dh key: ', btoa(String.fromCharCode.apply(
