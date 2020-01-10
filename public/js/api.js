@@ -159,13 +159,12 @@ function getTeamsById() {
         // Objek JavaScript dari response.json() masuk lewat variabel data.
         // console.log(data);
         // Menyusun komponen card artikel secara dinamis
-        let urlGambar = teams.crestUrl.replace(/^http:\/\//i, 'https://');
         var articleHTML = "";
         articleHTML += `
         <div class="card">
-          <a href="${urlGambar}">
+          <a href="${teams.crestUrl}">
             <div class="card-image waves-effect waves-block waves-light">
-              <img src="${urlGambar}"/>
+              <img src="${teams.crestUrl}"/>
             </div>
           </a>
           <div class="card-content">

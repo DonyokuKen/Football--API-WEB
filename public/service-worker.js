@@ -17,14 +17,25 @@ workbox.precaching.precacheAndRoute([
     { url: '/js/idb.js', revision: '1' },
     { url: '/js/nav.js', revision: '1' },
     { url: '/manifest.json', revision: '1' },
+    { url: '/pages/home.html', revision: '1' },
+    { url: '/pages/saved.html', revision: '1' },
+    { url: '/pages/standings.html', revision: '1' },
+    
 ]);
 
-workbox.routing.registerRoute(
-    new RegExp('/pages/'),
-      workbox.strategies.staleWhileRevalidate({
-          cacheName: 'pages'
+
+    workbox.routing.registerRoute(
+      new RegExp('/pages/'),
+      new workbox.strategies.StaleWhileRevalidate({
+        cacheName: 'pages',
+        plugins: [
+          new workbox.cacheableResponse.Plugin({
+            statuses: [0, 200],
+          })
+        ]
       })
-  );
+    );
+
 
   workbox.routing.registerRoute(
     new RegExp('^https://api.football-data.org/v2/'),
@@ -59,4 +70,9 @@ workbox.routing.registerRoute(
     })
   );
 
-  
+  workbox.routing.registerRoute(
+    new RegExp('/article.html'),
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'articles'
+    })
+  );
